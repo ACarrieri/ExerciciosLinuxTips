@@ -42,6 +42,6 @@ public class ColecoesEListas {
         // 6. Percorrendo com forEach e Lambda
         System.out.println("Lista Completa após adição de pessoas:");
         listaFinal.forEach(nome -> System.out.println("- " + nome));
-        System.out.println("Tamanho da lista: " + listaFinal.size()); // aqui uso .size em ves de .legth pois é uma lista
+        System.out.println("Tamanho da lista: " + listaFinal.size()); // aqui uso .size em vez de .legth pois é uma lista
     }
 }
