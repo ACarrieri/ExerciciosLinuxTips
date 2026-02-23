@@ -20,28 +20,30 @@ import java.util.Arrays; //Para usar o truque de converter arrays fixos. (A pont
 import java.util.List; //A "regra geral" das listas que o Java segue (É o "O QUE" deve ser feito - interface).
 
 public class ColecoesEListas {
-    public static void main(String[] args) {
 
+    public static List<String> buildList() {
         // 1. Array convencional (Fixo)
         String[] nomesArray = {"Amanda", "Carlos", "Beatriz"};
 
-        // 2. Usando .length
-        System.out.println("Tamanho do array: " + nomesArray.length);
-        System.out.println("Os nomes são: " + Arrays.toString(nomesArray)); // aqui não funciona para imprimir nomes como em listas, por ser um array
-
-        // 3. Arrays.asList (Gera uma lista ligada ao array)
+        // 2. Arrays.asList (Gera uma lista ligada ao array)
         List<String> listaDeArray = Arrays.asList(nomesArray);
 
-        // 4. List.of (Java 9+ - Gera uma lista imutável)
+        // 3. List.of (Java 9+ - Gera uma lista imutável)
         List<String> nomesExtras = List.of("Daniel", "Elena");
 
-        // 5. Criando uma cópia e unindo (Usando ArrayList para poder modificar)
+        // 4. Criando uma cópia e unindo
         List<String> listaFinal = new ArrayList<>(listaDeArray);
         listaFinal.addAll(nomesExtras);
 
-        // 6. Percorrendo com forEach e Lambda
+        return listaFinal; // Retorna a lista pronta para quem chamar
+    }
+
+    public static void main(String[] args) {
+        // O main agora apenas consome a lógica do método buildList
+        List<String> listaFinal = buildList();
+
         System.out.println("Lista Completa após adição de pessoas:");
         listaFinal.forEach(nome -> System.out.println("- " + nome));
-        System.out.println("Tamanho da lista: " + listaFinal.size()); // aqui uso .size em vez de .legth pois é uma lista
+        System.out.println("Tamanho da lista: " + listaFinal.size());
     }
 }
